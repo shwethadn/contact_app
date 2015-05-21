@@ -1,0 +1,44 @@
+
+
+
+
+
+
+<h1>Listing Contacts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phnum</th>
+      <th>User_id</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.name %></td>
+        <td><%= contact.phnum %></td>
+        <td><%= contact.user_id %></td>
+        <td><%= link_to 'Show', contact %></td>
+        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
+        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+<%= link_to 'New Contact', new_user_profile_path %>
+<br><br>
+<%= link_to 'possible suggestions', user_profiles_path %><br><br>
+
+
+
+
+
+

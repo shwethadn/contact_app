@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'back', contacts_path %>
+
+<h1>Listing User Profiles</h1>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phnum</th>
+      <th>User</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_profiles.each do |user_profile| %>
+      <tr>
+        <td><%= user_profile.name %></td>
+        <td><%= user_profile.address %></td>
+        <td><%= user_profile.phnum %></td>
+        <td><%= user_profile.user_id %></td>
+        <td><%= link_to 'Show', user_profile %></td>
+        <td><%= link_to 'Edit', edit_user_profile_path(user_profile) %></td>
+        <td><%= link_to 'Destroy', user_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'add', add_path(id: user_profile.id) %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<%= form_tag user_profiles_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+  </p>
+<% end %>
+
+
+
